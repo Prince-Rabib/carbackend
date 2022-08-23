@@ -20,6 +20,32 @@ router.get('/',auth, async(req, res) => {
      
 });
 
+router.get('/pending',auth, async(req, res) => {
+  try {
+    const posts = await Post.find({carstatus:"false"}).sort({data: -1});
+     res.json(posts)
+    
+  } catch (error) {
+
+    console.error(error.message);
+    
+  }
+     
+});
+
+router.get('/approved',auth, async(req, res) => {
+  try {
+    const posts = await Post.find({carstatus:"true"}).sort({data: -1});
+     res.json(posts)
+    
+  } catch (error) {
+
+    console.error(error.message);
+    
+  }
+     
+});
+
 router.post('/mypost',auth, async(req, res) => {
   
   try {
@@ -33,6 +59,8 @@ router.post('/mypost',auth, async(req, res) => {
   }
      
 });
+
+
 
 router.post('/findpost',auth, async(req, res) => {
   

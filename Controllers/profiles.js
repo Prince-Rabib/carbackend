@@ -121,9 +121,7 @@ router.post('/', [auth
        res.json(profile);
 
     } catch (error) {
-
-       console.error(error.message);
-      
+       console.error(error.message);    
     }
 }
 );
