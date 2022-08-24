@@ -49,7 +49,7 @@ router.get('/approved',auth, async(req, res) => {
 router.post('/mypost',auth, async(req, res) => {
   
   try {
-    const post = await Post.find({user:req.body.id});
+    const post = await Post.find({user:req.body.id,carstatus:'true'});
      res.json(post)
     
   } catch (error) {
@@ -65,7 +65,11 @@ router.post('/mypost',auth, async(req, res) => {
 router.post('/findpost',auth, async(req, res) => {
   
   try {
-    const post = await Post.find({shows:req.body.shows});
+    
+    const search = req.body.car;
+    console.log(search);
+    const post = await Post.find({'car': {$regex: search, $options: 'i'}});
+    console.log(post)
      res.json(post)
     
   } catch (error) {

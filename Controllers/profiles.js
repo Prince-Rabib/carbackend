@@ -74,6 +74,7 @@ router.post('/', [auth
   const {
      profileimage,
      coverimage,
+     mainimage,
      bio,
      address,
      phone,
@@ -89,6 +90,7 @@ router.post('/', [auth
 
     profileFields.user = req.user.id;
     if(profileimage) profileFields.profileimage = profileimage;
+    if(mainimage) profileFields.mainimage = mainimage;
     if(coverimage) profileFields.coverimage= coverimage;
     if(bio) profileFields.bio = bio;
     if(address) profileFields.address = address;

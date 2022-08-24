@@ -35,7 +35,8 @@ router.get('/all' ,async(req, res) => {
 
 router.post('/all' ,async(req, res) => {
   try {
-    const user = await User.find({name:req.body.name});
+    const search = req.body.name;
+    const user = await User.find({'name': { $regex: search, $options: 'i'}});
     console.log(user)
      res.json(user)
     

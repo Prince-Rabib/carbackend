@@ -14,7 +14,10 @@ const ProfileSchema = new Schema({
   },
   profileimage: {
     type: String
-  }, 
+  },
+  mainimage: {
+    type: String
+  },  
   coverimage: {
     type: String
   }, 
