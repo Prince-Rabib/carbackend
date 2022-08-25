@@ -60,7 +60,19 @@ router.post('/mypost',auth, async(req, res) => {
      
 });
 
+router.post('/mypost/status',auth, async(req, res) => {
+  
+  try {
+    const post = await Post.find({user:req.body.id});
+     res.json(post)
+    
+  } catch (error) {
 
+    console.error(error.message);
+    
+  }
+     
+});
 
 router.post('/findpost',auth, async(req, res) => {
   
