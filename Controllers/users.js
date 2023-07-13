@@ -108,10 +108,10 @@ router.post(
           id: user.id,
         },
       };
-
+      const key = "Mombu1234$"
       jwt.sign(
         payload,
-        config.get('secretkey'),
+        key,
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
