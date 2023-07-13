@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "practice node js",
   "main": "server.js",
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@smartcar/auth": "^2.9.0",
     "axios": "^0.24.0",
